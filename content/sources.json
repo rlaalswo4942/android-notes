@@ -1,0 +1,285 @@
+{
+  "version": "1.0",
+  "sources": [
+    {
+      "id": "S01",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Android 개발자 교육 과정 (Compose·Kotlin)",
+      "url": "https://developer.android.com/courses",
+      "scope": "U00 교육 과정"
+    },
+    {
+      "id": "S02",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Codelab: Compose 텍스트 컴포저블",
+      "url": "https://developer.android.com/codelabs/basic-android-kotlin-compose-text-composables",
+      "scope": "U01 컴포저블·컴포지션"
+    },
+    {
+      "id": "S03",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Compose의 리소스",
+      "url": "https://developer.android.com/develop/ui/compose/resources",
+      "scope": "U01 리소스"
+    },
+    {
+      "id": "S04",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Compose 레이아웃 기본사항",
+      "url": "https://developer.android.com/develop/ui/compose/layouts/basics",
+      "scope": "U02 Column·Row·Box"
+    },
+    {
+      "id": "S05",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Compose 수정자",
+      "url": "https://developer.android.com/develop/ui/compose/modifiers",
+      "scope": "U02 수정자 순서"
+    },
+    {
+      "id": "S06",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Material3 패키지 레퍼런스",
+      "url": "https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary",
+      "scope": "U02 Surface·Scaffold"
+    },
+    {
+      "id": "S07",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "앱 바",
+      "url": "https://developer.android.com/develop/ui/compose/components/app-bars",
+      "scope": "U02 TopAppBar"
+    },
+    {
+      "id": "S08",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "카드",
+      "url": "https://developer.android.com/develop/ui/compose/components/card",
+      "scope": "U02 Card"
+    },
+    {
+      "id": "S09",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Compose의 디자인 시스템",
+      "url": "https://developer.android.com/develop/ui/compose/designsystems",
+      "scope": "U02 테마"
+    },
+    {
+      "id": "S10",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "대화상자",
+      "url": "https://developer.android.com/develop/ui/compose/components/dialog",
+      "scope": "U02 AlertDialog·Dialog"
+    },
+    {
+      "id": "S11",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "글꼴 사용",
+      "url": "https://developer.android.com/develop/ui/compose/text/fonts",
+      "scope": "U03 글꼴 등록"
+    },
+    {
+      "id": "S12",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Material 아이콘 패키지",
+      "url": "https://developer.android.com/reference/kotlin/androidx/compose/material/icons/package-summary",
+      "scope": "U03 Icon"
+    },
+    {
+      "id": "S13",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "이미지 맞춤설정 (ContentScale)",
+      "url": "https://developer.android.com/develop/ui/compose/graphics/images/customize",
+      "scope": "U03 ContentScale"
+    },
+    {
+      "id": "S14",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "라디오 버튼",
+      "url": "https://developer.android.com/develop/ui/compose/components/radio-button",
+      "scope": "U03 RadioButton"
+    },
+    {
+      "id": "S15",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "목록 및 그리드",
+      "url": "https://developer.android.com/develop/ui/compose/lists",
+      "scope": "U04 지연 구성 요소"
+    },
+    {
+      "id": "S16",
+      "kind": "Kotlin 공식 문서",
+      "organization": "Kotlin",
+      "title": "Data classes",
+      "url": "https://kotlinlang.org/docs/data-classes.html",
+      "scope": "U04 데이터 클래스"
+    },
+    {
+      "id": "S17",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Compose 그래픽",
+      "url": "https://developer.android.com/develop/ui/compose/graphics",
+      "scope": "U05 Canvas"
+    },
+    {
+      "id": "S18",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Brush: 그래디언트와 셰이더",
+      "url": "https://developer.android.com/develop/ui/compose/graphics/draw/brush",
+      "scope": "U05 drawBehind·Brush"
+    },
+    {
+      "id": "S19",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Android의 Kotlin 코루틴",
+      "url": "https://developer.android.com/kotlin/coroutines",
+      "scope": "U05 코루틴"
+    },
+    {
+      "id": "S20",
+      "kind": "Kotlin 공식 문서",
+      "organization": "Kotlin",
+      "title": "kotlinx.coroutines Job",
+      "url": "https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-job/",
+      "scope": "U05 Job"
+    },
+    {
+      "id": "S21",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "상태 및 Jetpack Compose",
+      "url": "https://developer.android.com/develop/ui/compose/state",
+      "scope": "U06 상태"
+    },
+    {
+      "id": "S22",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Compose에 UI 상태 저장",
+      "url": "https://developer.android.com/develop/ui/compose/state-saving",
+      "scope": "U06 rememberSaveable"
+    },
+    {
+      "id": "S23",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Compose UI 설계 (아키텍처)",
+      "url": "https://developer.android.com/develop/ui/compose/architecture",
+      "scope": "U06 ViewModel"
+    },
+    {
+      "id": "S24",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Compose를 사용한 탐색",
+      "url": "https://developer.android.com/develop/ui/compose/navigation",
+      "scope": "U07 Navigation"
+    },
+    {
+      "id": "S25",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Codelab: Compose 탐색",
+      "url": "https://developer.android.com/codelabs/basic-android-kotlin-compose-navigation",
+      "scope": "U07 여러 화면 + ViewModel"
+    },
+    {
+      "id": "S26",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "데이터 및 파일 저장소 개요",
+      "url": "https://developer.android.com/training/data-storage",
+      "scope": "U08 저장소 종류"
+    },
+    {
+      "id": "S27",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "공유 저장소",
+      "url": "https://developer.android.com/training/data-storage/shared",
+      "scope": "U08 MediaStore"
+    },
+    {
+      "id": "S28",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "사진 선택 도구",
+      "url": "https://developer.android.com/training/data-storage/shared/photopicker",
+      "scope": "U08 Photo Picker"
+    },
+    {
+      "id": "S29",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Room을 사용하여 로컬 DB에 데이터 저장",
+      "url": "https://developer.android.com/training/data-storage/room",
+      "scope": "U08 Room"
+    },
+    {
+      "id": "S30",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Android Basics with Compose — Unit 7 (WorkManager)",
+      "url": "https://developer.android.com/courses/android-basics-compose/unit-7",
+      "scope": "U08 WorkManager"
+    },
+    {
+      "id": "S31",
+      "kind": "라이브러리 문서",
+      "organization": "Square",
+      "title": "Retrofit (GitHub 저장소)",
+      "url": "https://github.com/square/retrofit",
+      "scope": "U09 Retrofit"
+    },
+    {
+      "id": "S32",
+      "kind": "라이브러리 문서",
+      "organization": "Coil",
+      "title": "Coil 문서",
+      "url": "https://coil-kt.github.io/coil/",
+      "scope": "U09 Coil"
+    },
+    {
+      "id": "S33",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "활동 수명 주기",
+      "url": "https://developer.android.com/guide/components/activities/activity-lifecycle",
+      "scope": "U10 생명 주기"
+    },
+    {
+      "id": "S34",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "Intent 레퍼런스",
+      "url": "https://developer.android.com/reference/kotlin/android/content/Intent",
+      "scope": "U10 인텐트"
+    },
+    {
+      "id": "S35",
+      "kind": "Android 공식 문서",
+      "organization": "Android Developers",
+      "title": "서비스 개요",
+      "url": "https://developer.android.com/develop/background-work/services",
+      "scope": "U10 서비스"
+    }
+  ]
+}
