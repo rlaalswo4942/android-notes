@@ -193,7 +193,7 @@
       <h2 class="grp">교재 <small>${esc(LB.book)}</small></h2><div class="cat-grid">`;
     BOOK.forEach(L => (h += card(L)));
     h += `</div><h2 class="grp">연습 · 복습</h2><div class="cat-grid">`;
-    if (QUESTIONS.length) h += tool("quiz", "PRACTICE", `연습문제 ${QUESTIONS.length}문항`, "입문·기본·응용·계산 · 단원별 · 오답 다시 풀기");
+    if (QUESTIONS.length) h += tool("quiz", "PRACTICE", `연습문제 ${QUESTIONS.length}문항`, "공부한 범위 · 입문·기본·응용·계산 · 단원별 · 오답 다시 풀기");
     if (EXAM) h += tool("exam", "MOCK EXAM", `모의고사 ${EXAM.sets.length}개 유형`, "빈칸 단답 · O/X · 질문형 단답 · 코드 작성 — 시험지처럼 한 장에 풀고 한 번에 채점");
     if (FEAT.calc) h += tool("calc", "TOOL", LB.calcTitle, "TP·TN·FP·FN을 넣어 정확도·정밀도·재현율·F1 계산");
     if (DICT.length) h += tool("dict", "TOOL", LB.dictTitle, `교재의 용어 ${DICT.length}개 검색`);
@@ -297,6 +297,8 @@
   /* ───────── 연습문제 ───────── */
   let QS = null; // 현재 풀이 세션 { mode, topic, list:[id], i, answered:{id:{a,ok}} }
   const LEVEL_MODES = { basic: ["입문", "기본"], applied: ["응용", "계산"] };
+  // 공부한 범위 = 읽음 체크가 하나라도 있는 단원
+  const studiedTags = () => { const c = checks(); return new Set(BOOK.filter(L => c[L.id] && Object.values(c[L.id]).some(Boolean)).map(L => L.tag)); };
   function quizList(mode, topic) {
     const st = quizSt();
     let list = QUESTIONS;
@@ -304,6 +306,7 @@
     else if (mode === "applied") list = list.filter(q => LEVEL_MODES.applied.includes(q.level));
     else if (mode === "unit") list = list.filter(q => q.topic === topic);
     else if (mode === "wrong") list = list.filter(q => st[q.id] && !st[q.id].ok);
+    else if (mode === "studied") { const t = studiedTags(); list = list.filter(q => t.has(q.topic)); }
     const ids = list.map(q => q.id);
     for (let i = ids.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; } // 문제 순서만 섞음 (보기 순서는 원본 유지)
     return ids;
@@ -311,11 +314,12 @@
   function renderQuiz(topic) {
     if (topic && !QS) QS = { mode: "unit", topic, list: quizList("unit", topic), i: 0, answered: {} };
     if (topic && QS && (QS.mode !== "unit" || QS.topic !== topic)) QS = { mode: "unit", topic, list: quizList("unit", topic), i: 0, answered: {} };
-    const s = quizStats(), st = quizSt(), wrongN = QUESTIONS.filter(q => st[q.id] && !st[q.id].ok).length;
+    const s = quizStats(), st = quizSt(), wrongN = QUESTIONS.filter(q => st[q.id] && !st[q.id].ok).length, studied = studiedTags(), studiedN = QUESTIONS.filter(q => studied.has(q.topic)).length;
     let h = `<div class="home quiz"><h1>연습문제</h1>
       <div class="notice"><b>${esc(QNOTICE)}</b> 정답률은 <b>정답 수 ÷ 채점된 응답 수 × 100</b>(미응답 제외)이며 ${esc(LB.scoreNote)}</div>
       <div class="overall"><b>전체</b><span class="bar"><i style="width:${s.total ? s.graded / s.total * 100 : 0}%"></i></span><small>채점 ${s.graded}/${s.total}</small><b>정답률 ${s.pct != null ? s.pct + "%" : "—"}</b>${wrongN ? `<small>오답 ${wrongN}개</small>` : ""}</div>
       <div class="modes">
+        <button data-mode="studied" ${studiedN ? "" : "disabled"} title="${studied.size ? "체크한 단원: " + esc([...studied].join(" · ")) : "교재에서 읽음 체크를 하면 그 단원 문제가 나와요"}">공부한 범위 <small>${studied.size ? studied.size + "개 단원 · " + studiedN : "체크 없음"}</small></button>
         <button data-mode="basic">기본 모드 <small>입문·기본 ${QUESTIONS.filter(q => LEVEL_MODES.basic.includes(q.level)).length}</small></button>
         <button data-mode="all">전 범위 <small>${QUESTIONS.length}</small></button>
         <button data-mode="applied">응용 문제 <small>응용·계산 ${QUESTIONS.filter(q => LEVEL_MODES.applied.includes(q.level)).length}</small></button>
@@ -335,7 +339,7 @@
   }
   function drawQ() {
     const box = document.getElementById("qbox"); if (!box) return;
-    if (!QS) { box.innerHTML = `<div class="qcard empty">위에서 모드를 고르면 문제가 시작됩니다. 처음이면 <b>기본 모드</b>를 추천해요.</div>`; return; }
+    if (!QS) { box.innerHTML = `<div class="qcard empty">위에서 모드를 고르면 문제가 시작됩니다. 공부하면서 읽음 체크를 했다면 <b>공부한 범위</b>, 처음이면 <b>기본 모드</b>를 추천해요.</div>`; return; }
     if (!QS.list.length) { box.innerHTML = `<div class="qcard empty">이 모드에 해당하는 문제가 없어요.</div>`; return; }
     if (QS.i >= QS.list.length) {
       const a = Object.values(QS.answered), ok = a.filter(x => x.ok).length;
